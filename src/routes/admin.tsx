@@ -649,13 +649,13 @@ function FactorGroup<T extends string>({
             <div className="flex items-baseline justify-between gap-2">
               <span className="text-sm text-foreground">{i.label}</span>
               <span className="text-xs tabular-nums text-muted-foreground">
-                {values[i.id].toFixed(2)}×
+                {(values[i.id] ?? 1).toFixed(2)}×
               </span>
             </div>
             {i.desc ? (
               <span className="block text-xs text-muted-foreground/80">{i.desc}</span>
             ) : null}
-            <NumberInput step={0.01} value={values[i.id]} onChange={(v) => onChange(i.id, v)} suffix="×" />
+            <NumberInput step={0.01} value={values[i.id] ?? 1} onChange={(v) => onChange(i.id, v)} suffix="×" />
           </div>
         ))}
       </div>
